@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useUsername } from "hooks";
+import { MyContext } from "index";
 
 export function Home() {
-  const username = useUsername();
-
-
+  const data = useContext(MyContext);
+  console.log("home", data.username);
   return (
     <div>
-      <h4>{username}</h4>
+      <h4>{data.username}</h4>
     </div>
   );
 }

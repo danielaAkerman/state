@@ -1,13 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { SearchForm } from "./SearchForm";
 import { useUsername } from "../hooks";
+import { MyContext } from "index";
 
 export function Layout() {
-  const username = useUsername();
+  const data = useContext(MyContext);
+  console.log("layout", data.username);
   return (
     <div>
-      <header>Header {username}</header>
+      <header>Header {data.username}</header>
       <Outlet></Outlet>
       <footer>footer</footer>
     </div>
