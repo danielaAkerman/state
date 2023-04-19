@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Suspense } from "react";
 import { useUsername } from "hooks";
-import { MyContext } from "index";
+// import { MyContext } from "index";
+
 
 export function Home() {
-  const data = useContext(MyContext);
-  console.log("home", data.username);
+  // const [user, setUser] = useRecoilState(userAtom);
+  // const data = useContext(MyContext);
+  // const username = useRecoilValue(usernameState);
+  const username = useUsername()
+  console.log("home", username);
   return (
     <div>
-      <h4>{data.username}</h4>
+      <h4>{username}</h4>
     </div>
   );
 }
